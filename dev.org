@@ -1,0 +1,43 @@
+
+* done Refactor and organize files
+
+* done Document the code
+
+* todo Wiki
+** todo Examples
+* done Document how to debug fakeweb
+  - State "done"       from "todo"       [2010-08-22 Dom 19:01] \\
+    simply changed from comments to a if, this could go away once the api
+    is finished i think
+  Its rather easy once you get the hang of it, if you have trouble set
+  DEBUG_URI to t on meme.rb then rspec will spit a lot of debugging info. Search
+  the false statements and compare the uris, adjust then accordingly, then
+  all you have to do is:
+  wget "url" -O ./spec/fixtures/name_of_fixture_to_load.json
+  and you are set.
+
+
+* todo API
+** public
+*** done meme.followers
+*** done meme.following
+*** done meme.info
+**** todo user.posts
+
+*** todo meme.people
+    meme.people é exatamente a mesma coisa que o método meme.info: find
+*** done meme.popular
+*** todo meme.post.info
+    usa o pubid do post pra pegar info sobre ele.
+*** done meme.search
+*** todo meme.posts
+    [[file:lib/meme/search.rb::def%20self%20posts%20guid%20pubid%20nil][implementação]]
+    [[file:spec/search_spec.rb::describe%20posts%20do][spec]]
+*** todo post.user
+** todo private
+*** todo meme.user.comments
+*** todo meme.user.dashboard
+*** todo meme.user.following
+*** todo meme.user.posts
+
+
