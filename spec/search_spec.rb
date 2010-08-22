@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 require File.expand_path(File.dirname(__FILE__) + '/spec_helper')
 
 describe "Meme::Post" do
@@ -107,5 +108,22 @@ describe "Meme::Post" do
     end
 
   end
+  describe "::posts" do
+    it "should return specific post" do
+      query = "SELECT * FROM meme.posts WHERE owner_guid='PA46EGLSM3EKVFXS7RVRFPYJ7U' AND pubid='f5LKmHB';"
+      fake_web(query, 'meme_specific_post.json')
+      @results = Meme::Post.posts('PA46EGLSM3EKVFXS7RVRFPYJ7U','f5LKmHB')
+      @results.pubid.should == 'f5LKmHB'
+    end
+    it "should return all posts" do
+      query = "SELECT * FROM meme.posts WHERE owner_guid='PA46EGLSM3EKVFXS7RVRFPYJ7U';"
+      fake_web(query, 'meme_posts.json')
+      @results = Meme::Post.posts('PA46EGLSM3EKVFXS7RVRFPYJ7U')
+      @results.count.should == 2
+    end
+ end
 
 end
+
+
+

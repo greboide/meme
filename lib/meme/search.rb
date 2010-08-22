@@ -11,7 +11,7 @@ module Meme
         VARS.each do |var|
           self.instance_variable_set("@#{var}", data[var])
         end
-      end      
+      end
     end
 
     # Find posts
@@ -65,6 +65,26 @@ module Meme
       Meme::Info.find_by_guid(self.guid)
     end
 
+    def self.posts(guid, pubid = nil)
+      if pubid == nil
+        query = "SELECT * FROM meme.posts WHERE owner_guid='#{guid}';"
+      else
+        query = "SELECT * FROM meme.posts WHERE owner_guid='#{guid}' AND pubid='#{pubid}';"
+      end
+      parse = Request.parse(query)
+      if parse
+        results = parse['query']['results']
+        if results.nil?
+          nil
+        elsif (results['post'].class).to_s == "Hash"
+          Post.new(results['post'])
+        else
+          results['post'].map {|m| Post.new(m)}
+        end
+      else
+        parse.error!
+      end
+    end
   end
 
 end

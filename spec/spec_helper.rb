@@ -18,4 +18,7 @@ end
 def fake_web(query, fixture)
   url = URI.escape("https://query.yahooapis.com/v1/public/yql?q=#{query}&format=json")
   FakeWeb.register_uri(:get, url, :body => load_fixture(fixture))
+  if DEBUG_URI
+    puts url
+  end
 end
