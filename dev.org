@@ -34,10 +34,15 @@
     [[file:lib/meme/search.rb::def%20self%20posts%20guid%20pubid%20nil][implementação]]
     [[file:spec/search_spec.rb::describe%20posts%20do][spec]]
 *** todo post.user
+*** done meme.user.posts
+    - State "done"       from "todo"       [2010-08-28 Sáb 18:55] \\
+      only the public part, of getting a user's posts
+
 ** todo private
 *** todo meme.user.comments
 *** todo meme.user.dashboard
 *** todo meme.user.following
+*** done basic oauth support for queries
+    - State "done"       from "todo"       [2010-08-28 Sáb 02:39] \\
+      added basic support from http://gist.github.com/383159
 *** todo meme.user.posts
-
-

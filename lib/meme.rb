@@ -4,6 +4,7 @@ require 'json'
 require 'meme/info'
 require 'meme/search'
 require 'meme/request'
+require 'meme/user'
 
 DEBUG_URI = nil
 DEBUGGER = nil
