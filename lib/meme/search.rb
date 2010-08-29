@@ -67,9 +67,9 @@ module Meme
 
     def self.posts(guid, pubid = nil)
       if pubid == nil
-        query = "SELECT * FROM meme.posts WHERE owner_guid='#{guid}';"
+        query = "SELECT * FROM meme.posts WHERE owner_guid='#{guid}'"
       else
-        query = "SELECT * FROM meme.posts WHERE owner_guid='#{guid}' AND pubid='#{pubid}';"
+        query = "SELECT * FROM meme.posts WHERE owner_guid='#{guid}' AND pubid='#{pubid}'"
       end
       parse = Request.parse(query)
       if parse

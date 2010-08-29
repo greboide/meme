@@ -11,9 +11,13 @@ module Meme
         buffer = open(url).read
       end
       if DEBUG_URI
-        puts FakeWeb.registered_uri?(:get,url).to_s
-        puts url
-        puts urloauth
+        if oauth
+          puts FakeWeb.registered_uri?(:get,urloauth).to_s
+          puts urloauth;
+        else
+          puts FakeWeb.registered_uri?(:get,url).to_s
+          puts url
+        end
       end
       JSON.parse(buffer)
     end
